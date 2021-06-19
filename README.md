@@ -12,6 +12,4 @@ A toy app to edit CSVs
 2. Upload the bundle to S3 or something.
 
 ## TODO
-- Edit the CSV
-- Export the CSV
 - Tests

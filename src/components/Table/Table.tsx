@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import './Table.css';
+import Cell from '../Cell/Cell';
 import Csv from '../../models/Csv';
 
 interface TableProps {
@@ -7,6 +8,10 @@ interface TableProps {
 }
 
 const Table:FC<TableProps> = (tableProps: TableProps) => {
+  const onCellUpdate = (row: number, column: number, value: string) => {
+    tableProps.csv.data[row][column] = value;
+  };
+
   return (
     <table>
       <thead>
@@ -17,10 +22,10 @@ const Table:FC<TableProps> = (tableProps: TableProps) => {
         </tr>
       </thead>
       <tbody>
-        {tableProps.csv.data.map((value, index) => {
-          return <tr key={index}>
-            {value.map((value, index) => {
-              return <td key={index}>{value}</td>
+        {tableProps.csv.data.map((value, row) => {
+          return <tr key={row}>
+            {value.map((value, column) => {
+              return <Cell key={row + column} initialValue={value} onUpdate={(value: string) => onCellUpdate(row, column, value)} />
             })}
           </tr>
         })}

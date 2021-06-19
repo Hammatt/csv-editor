@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Csv from '../models/Csv';
 
+// https://datatracker.ietf.org/doc/html/rfc4180
 const useCsv = (): [Csv | null, (file: File) => void] => {
   const [csv, setCsv] = useState<Csv | null>(null);
 
-  // https://datatracker.ietf.org/doc/html/rfc4180
   const handleImport = async (file: File) => {
 
     const csvString = await file.text();

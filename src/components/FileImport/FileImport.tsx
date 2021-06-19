@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 
 interface FileImportProps {
   importedCallback: (file: File) => void;
